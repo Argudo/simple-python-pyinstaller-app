@@ -1,0 +1,38 @@
+version: v1.0
+name: Initial Pipeline
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu2004
+blocks:
+  - name: Build
+    task:
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - sh 'python -m py_compile sources/add2vals.py sources/calc.py'
+    dependencies: []
+  - name: Test
+    dependencies:
+      - Build
+    task:
+      epilogue:
+        on_pass:
+          commands:
+            - junit 'test-reports/results.xml
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - sh 'py.test --verbose --junit-xml test-reports/results.xml sources/test_calc.py'
+  - name: Deliver
+    dependencies:
+      - Test
+    task:
+      epilogue:
+        on_pass:
+          commands:
+            - archiveArtifacts 'dist/add2vals'
+      jobs:
+        - name: 'Job #1'
+          commands:
+            - sh 'pyinstaller --onefile sources/add2vals.py'
