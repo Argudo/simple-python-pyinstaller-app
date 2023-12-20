@@ -23,7 +23,7 @@ blocks:
       epilogue:
         on_pass:
           commands:
-            - junit 'test-reports/results.xml
+            - junit test-reports/results.xml
       jobs:
         - name: 'Job #1'
           commands:
