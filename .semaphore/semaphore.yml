@@ -11,7 +11,7 @@ blocks:
         - name: 'Job #1'
           commands:
             - python --version
-            - sh 'python -m py_compile sources/add2vals.py sources/calc.py'
+            - sem-run python -m py_compile sources/add2vals.py sources/calc.py
     dependencies: []
   - name: Test
     dependencies:
