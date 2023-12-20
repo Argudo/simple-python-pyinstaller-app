@@ -44,4 +44,7 @@ blocks:
       jobs:
         - name: 'Job #1'
           commands:
-            - pyinstaller --onefile sources/add2vals.py
+            - python -m PyInstaller --onefile sources/add2vals.py
+      prologue:
+        commands:
+          - checkout
