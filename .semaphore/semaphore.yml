@@ -51,4 +51,4 @@ blocks:
         - name: 'Job #1'
           commands:
             - sudo apt install python-pytest -y
-            - sudo apt install apt install junit
+            - sudo apt install junit -y
