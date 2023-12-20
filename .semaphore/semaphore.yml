@@ -48,4 +48,4 @@ blocks:
       prologue:
         commands:
           - checkout
-          - sudo pip install pyinstaller -y
+          - sudo pip install pyinstaller
