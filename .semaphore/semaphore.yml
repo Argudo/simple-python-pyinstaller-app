@@ -30,7 +30,7 @@ blocks:
             - py.test --verbose --junit-xml test-reports/results.xml sources/test_calc.py
       prologue:
         commands:
-          - pip install pytest
+          - apt install python-pytest
   - name: Deliver
     dependencies:
       - Test
