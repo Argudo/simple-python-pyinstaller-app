@@ -15,8 +15,7 @@ blocks:
       prologue:
         commands:
           - checkout
-    dependencies:
-      - Requirements
+    dependencies: []
   - name: Test
     dependencies:
       - Build
@@ -32,6 +31,8 @@ blocks:
       prologue:
         commands:
           - checkout
+          - sudo apt install python-pytest -y
+          - sudo apt install junit -y
   - name: Deliver
     dependencies:
       - Test
@@ -44,11 +45,3 @@ blocks:
         - name: 'Job #1'
           commands:
             - pyinstaller --onefile sources/add2vals.py
-  - name: Requirements
-    dependencies: []
-    task:
-      jobs:
-        - name: 'Job #1'
-          commands:
-            - sudo apt install python-pytest -y
-            - sudo apt install junit -y
