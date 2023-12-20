@@ -28,6 +28,9 @@ blocks:
         - name: 'Job #1'
           commands:
             - py.test --verbose --junit-xml test-reports/results.xml sources/test_calc.py
+      prologue:
+        commands:
+          - pip install pytest
   - name: Deliver
     dependencies:
       - Test
