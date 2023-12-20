@@ -8,7 +8,7 @@ blocks:
   - name: Build
     task:
       jobs:
-        - name: 'Job #1'
+        - name: Build
           commands:
             - python --version
             - python -m py_compile sources/add2vals.py sources/calc.py
@@ -25,7 +25,7 @@ blocks:
           commands:
             - junit test-reports/results.xml
       jobs:
-        - name: 'Job #1'
+        - name: Test
           commands:
             - py.test --verbose --junit-xml test-reports/results.xml sources/test_calc.py
       prologue:
@@ -42,7 +42,7 @@ blocks:
           commands:
             - archiveArtifacts 'dist/add2vals'
       jobs:
-        - name: 'Job #1'
+        - name: Deliver
           commands:
             - python -m PyInstaller --onefile sources/add2vals.py
       prologue:
